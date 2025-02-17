@@ -104,7 +104,24 @@
         btnRandom.addEventListener('mouseover', () => {
             const randomX = Math.floor(Math.random() * 400 - 200);
             const randomY = Math.floor(Math.random() * 400 - 200);
-            btnRandom.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+            // Obtener el tamaño de la ventana
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Obtener el tamaño del botón
+            const buttonWidth = btnRandom.offsetWidth;
+            const buttonHeight = btnRandom.offsetHeight;
+
+            // Limitar el movimiento para que no se salga de la pantalla
+            const maxX = windowWidth - buttonWidth;
+            const maxY = windowHeight - buttonHeight;
+
+            const clampedX = Math.max(0, Math.min(randomX, maxX));
+            const clampedY = Math.max(0, Math.min(randomY, maxY));
+
+            // Aplicar la transformación asegurando que el botón se quede dentro de la ventana
+            btnRandom.style.transform = `translate(${clampedX}px, ${clampedY}px)`;
         });
     </script>
 </body>

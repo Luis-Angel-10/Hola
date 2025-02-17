@@ -22,12 +22,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 10px;
         }
 
         .message {
             text-align: center;
             font-size: 1.5rem;
-            max-width: 600px;
+            max-width: 90%; /* Asegura que no se desborde */
             line-height: 1.8;
             padding: 20px;
             background-color: rgba(255, 255, 255, 0.8);
@@ -56,8 +57,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 80px; /* Aumenta el espacio entre las imágenes */
-            margin-top: 80px;
+            gap: 20px; /* Menos espacio entre las imágenes */
+            margin-top: 20px;
             visibility: hidden; /* Inicialmente oculto */
         }
 
@@ -66,8 +67,9 @@
         }
 
         .image-gallery img {
-            width: 150px; /* Aumenta el tamaño de las imágenes */
-            height: 150px; /* Aumenta el tamaño de las imágenes */
+            width: 100%; /* Ajusta el tamaño a la pantalla */
+            max-width: 150px; /* Mantiene un tamaño máximo */
+            height: 150px; /* Mantiene un tamaño fijo */
             object-fit: cover;
             border-radius: 0px;
             cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
@@ -80,9 +82,38 @@
             margin-top: 20px;
             visibility: hidden; /* Inicialmente oculto */
         }
+
+        /* Media query para pantallas pequeñas */
+        @media (max-width: 600px) {
+            .message {
+                font-size: 1.2rem; /* Reduce el tamaño del texto */
+                padding: 15px;
+                max-width: 100%; /* Asegura que el texto no se desborde */
+            }
+
+            .btn-surprise {
+                font-size: 0.9rem;
+                padding: 8px 18px;
+            }
+
+            .image-gallery img {
+                width: 100%; /* Asegura que las imágenes se ajusten a la pantalla */
+                max-width: 120px; /* Reduzca el tamaño máximo de las imágenes */
+            }
+        }
+
+        /* Media query para pantallas grandes */
+        @media (min-width: 1024px) {
+            .message {
+                font-size: 2rem; /* Aumenta el tamaño del texto */
+            }
+
+            .image-gallery {
+                gap: 30px; /* Más espacio entre imágenes en pantallas grandes */
+            }
+        }
     </style>
 </head>
-
 <body>
     <div class="message" id="message"></div>
     <button class="btn-surprise" id="btn-surprise">Sorpresa</button>

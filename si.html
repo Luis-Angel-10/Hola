@@ -155,21 +155,20 @@
                     index++;
                     setTimeout(typeWriter, 100);
                 } else {
-                    document.getElementById('btn-surprise').style.display = "block"; // Muestra el botón cuando termina el texto
+                    document.getElementById('btn-surprise').style.display = "block";
                     setTimeout(function() {
-                        document.getElementById('image-gallery').style.visibility = "visible"; // Muestra las imágenes
-                        document.getElementById('image-text').style.visibility = "visible"; // Muestra el texto "Presiona la imagen"
-                    }, 500); // 500ms de retraso para que las imágenes y el texto aparezcan después del mensaje
+                        document.getElementById('image-gallery').style.visibility = "visible";
+                        document.getElementById('image-text').style.visibility = "visible";
+                    }, 500);
                 }
             }
-
             typeWriter();
-        }       
-
+        }
+        
         showMessage();
 
         document.getElementById('btn-surprise').addEventListener('click', function () {
-            window.location.href = 'corazon.html'; 
+            window.location.href = 'corazon.html';
         });
     </script>
 </body>
